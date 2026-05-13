@@ -293,10 +293,21 @@ h1 {
 }
 
 .bonus-category,
+.bonus-star-label,
 .bonus-symbol {
   color: #aebbd3;
   font-size: 0.8rem;
   line-height: 1.6;
+}
+
+.bonus-star-label {
+  grid-column: 2;
+  width: fit-content;
+  padding: 3px 8px;
+  border: 1px solid rgba(215, 183, 108, 0.32);
+  border-radius: 999px;
+  color: #f1d98c;
+  background: rgba(5, 10, 21, 0.58);
 }
 
 .bonus-title {
@@ -305,8 +316,8 @@ h1 {
   display: -webkit-box;
   overflow: hidden;
   color: #fff8e7;
-  font-size: clamp(0.95rem, 4.1vw, 1.05rem);
-  line-height: 1.35;
+  font-size: clamp(0.92rem, 3.9vw, 1.03rem);
+  line-height: 1.32;
   font-weight: 500;
   letter-spacing: 0;
   word-break: auto-phrase;
@@ -530,6 +541,7 @@ h1 {
 .diagram--energy-flow .diagram-items,
 .diagram--release-flow .diagram-items,
 .diagram--transformation-flow .diagram-items,
+.diagram--heart-flow .diagram-items,
 .diagram--wave-flow .diagram-items {
   padding-left: 6px;
 }
@@ -561,9 +573,43 @@ h1 {
 .diagram--tarot-card .diagram-item,
 .diagram--tarot-card-loop .diagram-item,
 .diagram--shichu-note .diagram-item,
+.diagram--mind-map .diagram-item,
+.diagram--heart-flow .diagram-item,
+.diagram--wave-flow .diagram-item,
+.diagram--memory-box .diagram-item,
 .diagram--male-type .diagram-item {
   min-height: 48px;
   border-bottom: 1px solid rgba(215, 183, 108, 0.12);
+}
+
+.diagram--shichu-note,
+.diagram--male-type,
+.diagram--mind-map,
+.diagram--memory-box {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(242, 217, 138, 0.14), transparent 7rem),
+    radial-gradient(circle at 16% 0%, rgba(171, 205, 255, 0.15), transparent 8rem),
+    linear-gradient(145deg, rgba(9, 18, 33, 0.9), rgba(4, 7, 16, 0.9));
+}
+
+.diagram--shichu-note .diagram-item,
+.diagram--male-type .diagram-item,
+.diagram--mind-map .diagram-item,
+.diagram--memory-box .diagram-item {
+  padding: 10px;
+  border: 1px solid rgba(215, 183, 108, 0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(215, 183, 108, 0.06), transparent),
+    rgba(2, 6, 14, 0.46);
+}
+
+.diagram--shichu-note .diagram-item span,
+.diagram--male-type .diagram-item span,
+.diagram--mind-map .diagram-item span,
+.diagram--memory-box .diagram-item span {
+  border-color: rgba(242, 217, 138, 0.72);
+  color: #f6e7b7;
 }
 
 .diagram--memory-circle .diagram-items,
@@ -599,6 +645,9 @@ h1 {
 .diagram--three-steps .diagram-item,
 .diagram--three-minute-work .diagram-item,
 .diagram--release-flow .diagram-item,
+.diagram--transformation-flow .diagram-item,
+.diagram--heart-flow .diagram-item,
+.diagram--wave-flow .diagram-item,
 .diagram--signs .diagram-item {
   padding: 10px;
   border: 1px solid rgba(171, 205, 255, 0.15);
