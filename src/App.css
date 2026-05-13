@@ -185,6 +185,7 @@ h1 {
   color: #ffd0d0;
   font-size: 0.9rem;
   line-height: 1.7;
+  white-space: pre-line;
 }
 
 .hero {
@@ -194,6 +195,26 @@ h1 {
 
 .hero h1 {
   font-size: clamp(2.45rem, 14vw, 5.4rem);
+}
+
+.vault-note {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0 4px;
+  padding: 16px;
+  border: 1px solid rgba(215, 183, 108, 0.28);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 90% 0%, rgba(171, 205, 255, 0.14), transparent 8rem),
+    linear-gradient(145deg, rgba(10, 18, 32, 0.78), rgba(4, 6, 14, 0.72));
+  box-shadow: inset 0 0 28px rgba(151, 199, 255, 0.04);
+}
+
+.vault-note p {
+  margin: 0;
+  color: #dce7f8;
+  font-size: 0.92rem;
+  line-height: 1.9;
 }
 
 .category-tabs {
@@ -538,10 +559,56 @@ h1 {
 }
 
 .diagram--tarot-card .diagram-item,
+.diagram--tarot-card-loop .diagram-item,
 .diagram--shichu-note .diagram-item,
 .diagram--male-type .diagram-item {
   min-height: 48px;
   border-bottom: 1px solid rgba(215, 183, 108, 0.12);
+}
+
+.diagram--memory-circle .diagram-items,
+.diagram--loop .diagram-items,
+.diagram--tarot-card-loop .diagram-items {
+  padding: 10px 0 2px;
+}
+
+.diagram--memory-circle .diagram-item,
+.diagram--loop .diagram-item {
+  min-height: 50px;
+  padding: 9px 10px;
+  border: 1px solid rgba(171, 205, 255, 0.15);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 8% 50%, rgba(171, 205, 255, 0.16), transparent 2.4rem),
+    rgba(2, 6, 14, 0.4);
+}
+
+.diagram--tarot-card-loop {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(215, 183, 108, 0.16), transparent 9rem),
+    linear-gradient(145deg, rgba(13, 18, 31, 0.9), rgba(4, 7, 16, 0.88));
+}
+
+.diagram--tarot-card-loop .diagram-item {
+  padding: 10px;
+  border: 1px solid rgba(215, 183, 108, 0.14);
+  border-radius: 8px;
+  background: rgba(5, 9, 18, 0.5);
+}
+
+.diagram--three-steps .diagram-item,
+.diagram--three-minute-work .diagram-item,
+.diagram--release-flow .diagram-item,
+.diagram--signs .diagram-item {
+  padding: 10px;
+  border: 1px solid rgba(171, 205, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(5, 10, 21, 0.54);
+}
+
+.diagram--signs .diagram-item span {
+  border-color: rgba(171, 205, 255, 0.58);
+  color: #fff8e7;
 }
 
 .moon-note,
