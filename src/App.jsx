@@ -16,7 +16,7 @@ const bonusRows = [
   ["優しかった彼が変わった夜の理由", "態度の変化に傷ついた心へ、原因を分けて見る言葉。", "彼の本音", "塔・劫財・欠け月"],
   ["男が追いたくなる“余白の波動”", "追うほど遠ざかる恋に、余白という引力を戻します。", "彼の本音", "星・食神・余白"],
   ["彼が戻る前に現れる小さな前兆", "戻る縁が動く前の、静かな変化を見落とさないために。", "彼の本音", "審判・沐浴・風"],
-  ["彼の気持ちを追いすぎない月読の視点", "占いも確認も止まらない夜、心の軸を取り戻します。", "彼の本音", "女教皇・印綬・鏡"],
+  ["彼の気持ちを追いすぎない月読の視点", "占いも確認も止まらない夜、心の軸を取り戻します。", "彼の本音", "月・女教皇・偏印・静観・夜の余白"],
   ["忘れられない恋に宿る魂の記憶", "忘れられない理由を、未練だけで責めない読み解き。", "復縁と執着", "月・墓・記憶"],
   ["復縁したい夜、最初に整えるべき気", "連絡より前に整えるべき心の温度を見ます。", "復縁と執着", "節制・正財・香"],
   ["悪魔のカードが出る夜、執着は強くなる", "離れたいのに見てしまう苦しさを象徴からほどきます。", "復縁と執着", "悪魔・劫財・鎖"],
@@ -48,6 +48,49 @@ const bonusRows = [
   ["彼の反応から魂を切り離す言葉", "彼の反応で一日が決まってしまう心をほどきます。", "タロットと夜ワーク", "剣・女教皇・境界"],
   ["長い夜に読む、月読からの小さな手紙", "どうしても苦しい夜に、自分を責めず眠るための手紙。", "タロットと夜ワーク", "月・星・手紙"]
 ];
+
+const diagramPlans = {
+  1: { diagramType: "three-signs", diagramTitle: "沈黙に隠れる3つの月", diagramItems: ["考えるための沈黙", "距離を置くための沈黙", "気持ちが薄れた沈黙"], diagramNote: "沈黙はすべて終わりではありません。まず種類を分けて読むこと。" },
+  2: { diagramType: "checklist", diagramTitle: "既読スルーの夜に見る3つの兆し", diagramItems: ["返信頻度の変化", "会話の温度", "直前の流れ"], diagramNote: "既読だけでは判断しない。流れ全体を見る。" },
+  3: { diagramType: "distance-flow", diagramTitle: "男が距離を置く時の内側の流れ", diagramItems: ["疲れ", "余裕の低下", "感情整理", "一時的な遮断"], diagramNote: "距離は拒絶ではなく、整理の時間の場合もある。" },
+  4: { diagramType: "comparison", diagramTitle: "冷めた彼 / 余裕がない彼", diagramItems: ["A：冷めた彼", "会う意思が薄い", "未来の話を避ける", "関心が戻らない", "B：余裕がない彼", "返信は遅いが関係を切らない", "落ち着くと戻る", "罪悪感が残る"], diagramNote: "行動の継続性で見る。" },
+  5: { diagramType: "energy-flow", diagramTitle: "返信が遅い時の気の流れ", diagramItems: ["疲労", "後回し", "安心しすぎ", "言葉が出ない"], diagramNote: "返信速度だけで愛情を測らない。" },
+  6: { diagramType: "hidden-feelings", diagramTitle: "会いたいと言わない裏側", diagramItems: ["言葉にするのが苦手", "主導権を握りたい", "余裕がない", "気持ちを見せるのが怖い"], diagramNote: "言葉より行動の一貫性を見る。" },
+  7: { diagramType: "before-after", diagramTitle: "優しさが変わる時", diagramItems: ["Before：熱量が高い時", "After：慣れ", "余裕低下", "現実化"], diagramNote: "変化は冷めた証拠とは限らない。" },
+  8: { diagramType: "do-dont", diagramTitle: "追わせる余白 / 離れさせる圧", diagramItems: ["Do：待てる", "Do：自分の時間がある", "Do：言葉が軽い", "Don't：確認しすぎる", "Don't：責める", "Don't：追いすぎる"], diagramNote: "余白は駆け引きではなく、自分を戻す空間。" },
+  9: { diagramType: "signs-timeline", diagramTitle: "戻る前の小さな前兆", diagramItems: ["反応が少し戻る", "SNSで存在を出す", "短い連絡が来る", "様子を見る発言が増える"], diagramNote: "前兆に飛びつかず、静かに受け取る。" },
+  10: { diagramType: "emotion-separation-flow", diagramTitle: "彼を読む前に、自分の月を読む", diagramItems: ["彼の反応", "不安", "想像", "追いたくなる", "一度止まる", "事実と想像を分ける", "自分に戻る"], diagramNote: "彼の心より先に、自分の月を読む。" },
+  11: { diagramType: "memory-circle", diagramTitle: "忘れられない恋の円環", diagramItems: ["記憶", "未練", "期待", "喪失感", "再確認"], diagramNote: "忘れられないのは、戻るべき証拠とは限らない。" },
+  12: { diagramType: "three-steps", diagramTitle: "復縁前に整える3つの気", diagramItems: ["連絡の気", "執着の気", "自分軸の気"], diagramNote: "復縁は相手を動かす前に、自分の流れを整える。" },
+  13: { diagramType: "tarot-card", diagramTitle: "悪魔が示す執着の輪", diagramItems: ["離れたい", "見てしまう", "期待する", "傷つく", "また戻る"], diagramNote: "悪魔は愛ではなく、鎖に気づかせるカード。" },
+  14: { diagramType: "comparison", diagramTitle: "愛 / 執着", diagramItems: ["愛：相手の幸せを願える", "愛：自分も大切にできる", "愛：安心がある", "執着：失う恐怖が強い", "執着：相手で自分を満たす", "執着：不安が続く"], diagramNote: "苦しい恋は、愛より恐れが大きくなっている可能性がある。" },
+  15: { diagramType: "loop", diagramTitle: "SNS確認のループ", diagramItems: ["寂しい", "見に行く", "傷つく", "比較する", "また見たくなる"], diagramNote: "見に行くたびに、心は過去へ戻る。" },
+  16: { diagramType: "do-dont", diagramTitle: "復縁の流れを濁す行動", diagramItems: ["Do：静観", "Do：自分を整える", "Do：短く軽い連絡", "Don't：長文", "Don't：責める", "Don't：確認", "Don't：占い依存"], diagramNote: "焦るほど、流れは逆流しやすい。" },
+  17: { diagramType: "three-minute-work", diagramTitle: "送る前の3分浄化", diagramItems: ["深呼吸", "書く", "一晩置く"], diagramNote: "送る前に一度、感情を体から抜く。" },
+  18: { diagramType: "release-flow", diagramTitle: "手放しの本当の流れ", diagramItems: ["忘れる", "ではなく", "握りしめる力を緩める", "自分へ戻る"], diagramNote: "手放しは別れではなく、自分を取り戻すこと。" },
+  19: { diagramType: "signs", diagramTitle: "再会の縁に出る兆し", diagramItems: ["時間を置いても嫌悪がない", "自然な接点が残る", "お互い変化している", "執着だけではない"], diagramNote: "縁は焦らせず、静かに残る。" },
+  20: { diagramType: "fork-road", diagramTitle: "戻る恋 / 戻らない恋", diagramItems: ["戻る恋：変化がある", "戻る恋：対話できる", "戻る恋：同じ傷を繰り返さない", "戻らない恋：同じ不安が続く", "戻らない恋：片方だけが頑張る", "戻らない恋：未来が見えない"], diagramNote: "戻ることより、戻った後に穏やかでいられるか。" },
+  21: { diagramType: "shichu-note", diagramTitle: "傷官の恋愛感受性", diagramItems: ["言葉に敏感", "態度を深く読む", "自尊心が傷つきやすい", "本音を飲み込む"], diagramNote: "傷官は面倒な星ではなく、繊細に愛を受け取る星。" },
+  22: { diagramType: "male-type", diagramTitle: "偏財男性の距離感", diagramItems: ["自由", "軽やかさ", "余白", "束縛への苦手意識"], diagramNote: "偏財は追われるほど逃げ、余白に戻ってくる。" },
+  23: { diagramType: "shichu-note", diagramTitle: "比肩が一人に戻る理由", diagramItems: ["自分のペース", "干渉が苦手", "弱さを見せにくい", "一人で整理する"], diagramNote: "比肩の沈黙は、拒絶ではなく自分を保つ時間。" },
+  24: { diagramType: "transformation-flow", diagramTitle: "劫財の愛が重くなる流れ", diagramItems: ["好き", "独占したい", "失いたくない", "確認したい", "執着"], diagramNote: "劫財は愛が深い分、恐れも強くなりやすい。" },
+  25: { diagramType: "mind-map", diagramTitle: "偏印の深読みマップ", diagramItems: ["なぜ返らない", "何かあったのか", "冷めたのか", "他に誰かいるのか"], diagramNote: "偏印は想像力があるからこそ、事実に戻る練習が必要。" },
+  26: { diagramType: "comparison", diagramTitle: "正財が求める恋 / 曖昧な恋", diagramItems: ["正財：誠実", "正財：安定", "正財：約束", "曖昧：未定", "曖昧：気分", "曖昧：不透明"], diagramNote: "正財は重いのではなく、丁寧な関係を求める星。" },
+  27: { diagramType: "do-dont", diagramTitle: "支える愛 / 背負う愛", diagramItems: ["支える：見守る", "支える：助ける", "支える：自分も大事にする", "背負う：我慢する", "背負う：相手を優先しすぎる", "背負う：自分を消す"], diagramNote: "印綬は守る力がある。でも自分も守っていい。" },
+  28: { diagramType: "heart-flow", diagramTitle: "食神が求める安心", diagramItems: ["言葉", "ぬくもり", "安心", "素直な愛情"], diagramNote: "愛されたい気持ちは幼さではなく、心の栄養。" },
+  29: { diagramType: "wave-flow", diagramTitle: "沐浴の恋の揺れ", diagramItems: ["惹かれる", "不安になる", "離れたくなる", "また求める"], diagramNote: "沐浴は揺れる星。揺れを責めず、整えること。" },
+  30: { diagramType: "memory-box", diagramTitle: "墓がしまい込む記憶", diagramItems: ["言えなかった言葉", "終われなかった想い", "過去の約束", "美化された記憶"], diagramNote: "墓は過去を閉じ込める星。開ける時は優しく。" },
+  31: { diagramType: "tarot-card", diagramTitle: "月が映す不安", diagramItems: ["錯覚", "不透明", "恐れ", "想像"], diagramNote: "月は不安を否定せず、照らしすぎないカード。" },
+  32: { diagramType: "tarot-card", diagramTitle: "悪魔の鎖", diagramItems: ["依存", "執着", "快楽", "離れられない理由"], diagramNote: "悪魔は縛るカードではなく、縛られていることに気づかせるカード。" },
+  33: { diagramType: "tarot-card", diagramTitle: "審判が鳴らす再会の鐘", diagramItems: ["再浮上", "連絡", "気づき", "復活"], diagramNote: "審判は戻るだけでなく、もう一度見直すカード。" },
+  34: { diagramType: "tarot-card", diagramTitle: "女教皇の静かな直感", diagramItems: ["沈黙", "観察", "内側の声", "冷静さ"], diagramNote: "女教皇はすぐ動かない。感じたことを静かに見つめる。" },
+  35: { diagramType: "tarot-card", diagramTitle: "死神が連れてくる再生", diagramItems: ["終わり", "手放し", "変化", "再生"], diagramNote: "死神は怖いカードではなく、古い流れを終わらせるカード。" },
+  36: { diagramType: "tarot-card", diagramTitle: "星が灯す希望", diagramItems: ["癒し", "未来", "静かな信頼", "回復"], diagramNote: "星はすぐ叶えるカードではなく、希望を消さないカード。" },
+  37: { diagramType: "night-work", diagramTitle: "眠れない夜の3行ノート", diagramItems: ["今の事実", "今の感情", "今夜やめること"], diagramNote: "書くことで、心は少し体に戻る。" },
+  38: { diagramType: "three-minute-work", diagramTitle: "追いLINE前の3分", diagramItems: ["スマホを伏せる", "不安を書く", "明日の自分に渡す"], diagramNote: "今送らない勇気が、関係を守る夜もある。" },
+  39: { diagramType: "affirmation", diagramTitle: "魂を戻す3つの言葉", diagramItems: ["彼の反応は私の価値ではない", "返信の速さで愛を測らない", "私は私の夜に戻る"], diagramNote: "言葉は小さな結界になる。" },
+  40: { diagramType: "letter", diagramTitle: "月読からの小さな手紙", diagramItems: ["責めなくていい", "急がなくていい", "忘れなくていい", "でも自分を置いていかない"], diagramNote: "長い夜にも、あなたの心が戻る場所を残しておく。" }
+};
 
 const firstTenContent = {
   1: {
@@ -199,20 +242,36 @@ const firstTenContent = {
     diagram: ["小さな接点", "記憶が動く", "焦らず保留", "整えて受け取る"]
   },
   10: {
-    intro: ["彼の気持ちを知りたい夜、占いも検索も止まらなくなることがあります。", "答えを探しているはずなのに、読めば読むほど不安が増える時があります。"],
-    essence: [
-      "気持ちを追いすぎる時、心は安心ではなく確証を求めています。けれど恋愛の確証は、相手の言葉や行動だけでなく、あなたが自分を信じられるかにも左右されます。",
-      "女教皇のカードは、静かな直感と観察を示します。直感は、焦りの中で何度も確認する声ではありません。少し距離を置いた時にも残る、落ち着いた感覚の方に近いものです。",
-      "印綬の気が強まると、相手を理解しようとしすぎて自分の感情が後回しになります。彼の理由を探し続けるほど、あなた自身の「私はどうしたい？」が見えなくなります。",
-      "月読の視点では、彼の気持ちを読む前に、自分の心の位置を読むことが先です。あなたが不安の底にいる時、どんな答えも足りなく感じてしまいます。"
+    intro: [
+      "彼が今、何を考えているのか。私のことをまだ好きなのか。返信が遅い理由は、冷めたからなのか。",
+      "夜になるほど、答えの出ない問いが増えていくことがあります。",
+      "でも、彼の気持ちを追いすぎるほど、本当に見なければいけないものが、だんだん見えなくなってしまうことがあります。",
+      "今夜は、彼の心を無理に覗きにいくのではなく、あなた自身の感情を静かに戻す読み方をしていきます。"
     ],
-    moon: "今夜のあなたは、月を見ているつもりで水面の揺れを見つめています。揺れが静まれば、本当に見えていたものが戻ってきます。",
-    signs: ["同じ占いを何度も読む時は不安が答えを上書きしています。", "彼の一言で一日が決まる時は軸が外側に寄っています。", "悪い結果だけ信じる時は心が疲れています。", "自分の望みを言えない時は相手中心になりすぎています。"],
-    avoid: ["不安なまま鑑定や検索を重ねる", "彼の気持ちだけを基準に行動する", "自分の本音を後回しにする"],
-    care: ["占いを見る時間を決める", "彼の気持ちと自分の望みを分けて書く", "返事や行動を一晩寝かせる"],
-    work: "ノートに「彼はどう思っている？」ではなく「私は何を大切にされたい？」と書きます。三分だけ、自分を主語にして答えてください。",
-    closing: "彼の心を追う手を少し休めて、あなたの心を迎えに行きましょう。",
-    diagram: ["確認したい", "不安が増える", "自分を読む", "静かな判断"]
+    essence: [
+      "恋愛で苦しくなる時、多くの人は「彼の気持ち」を知ろうとします。でも本当は、彼の気持ちそのものよりも、彼の反応によって揺れている自分の心の方が、先に整えるべき場所だったりします。",
+      "既読がついた。返信が来ない。前より絵文字が少ない。会いたいと言ってくれない。そういう小さな変化を拾い続けるほど、心はどんどん彼の外側に引っ張られていきます。",
+      "タロットで言えば、月のカードは「不安」「錯覚」「見えないものへの恐れ」を示します。彼の本音が見えない時、あなたの中の月が大きくなり、事実ではなく想像を信じやすくなるのです。",
+      "四柱推命で見ると、偏印や傷官が強い人は、相手の沈黙や微妙な言葉の変化を深く読み取りやすい傾向があります。それは悪いことではありません。むしろ、繊細に感じ取れる力です。",
+      "ただし、その感受性が不安に傾いた時、まだ起きていない未来まで、心が先に傷つきに行ってしまうことがあります。彼の気持ちを読む前に、まずは「私は今、不安を見ているのか、事実を見ているのか」を分けること。それが月読の視点です。"
+    ],
+    moon: "月は、すべてを明るく照らすわけではありません。少しだけ見えるもの、まだ隠れているもの、見えているようで見えていないもの。恋愛も同じです。彼の心を全部知ろうとしなくていい。今、見えている事実だけを静かに置く。返信がない。それ以上でも、それ以下でもない。その余白に、自分を責める言葉を入れないことです。",
+    signs: [
+      "返信前に何度もトーク画面を開いてしまう時は、彼の気持ちより自分の不安を見ている状態です。",
+      "彼の一言を何度も読み返して意味を探す時は、事実より想像が大きくなっています。",
+      "SNSのオンライン状況や投稿を確認してしまう時は、安心ではなく確認を求めています。",
+      "「冷めたかも」と何度も考えてしまう時は、未来の不安に先回りしています。",
+      "彼の気持ちより、自分の不安の方が大きくなっている時は、占いやLINEを繰り返しても安心が長続きしにくい状態です。"
+    ],
+    avoid: ["彼のSNSを見に行くこと", "返信が来ていない理由を決めつけること", "不安のまま追いLINEすること"],
+    care: [
+      "今日の私は寂しいのか、不安なのか、怒っているのか、期待しているのかを分ける",
+      "彼の気持ちを読む前に、自分の状態を読む",
+      "彼を読む前に、自分の月を読む時間を作る"
+    ],
+    work: "3分だけでいいので、ノートに「今、私が見ている事実」「今、私が想像していること」「今夜、私が自分に戻るためにやめること」を書いてください。例として、事実は「まだ返信が来ていない」、想像は「冷めたのかもしれない」、やめることは「今日はSNSを見に行かない」。この3つを分けるだけで、不安と事実が少し離れます。",
+    closing: "彼の心を追いかけすぎた夜は、自分の心を置き去りにしてしまう夜。今夜は、彼ではなく、あなた自身の月を静かに見てください。",
+    diagram: ["彼の反応", "不安が生まれる", "想像が膨らむ", "追いLINEしたくなる", "一度止まる", "事実と想像を分ける", "自分の心に戻る"]
   }
 };
 
@@ -272,6 +331,7 @@ const bonuses = bonusRows.map(([title, description, category, symbol], index) =>
   description,
   category,
   symbol,
+  diagram: diagramPlans[index + 1],
   content: buildBenefitContent(index + 1, title, description, category, symbol)
 }));
 
@@ -453,7 +513,7 @@ function BonusDetail({ bonus }) {
       </div>
 
       <BenefitIntro paragraphs={content.intro} />
-      <MiniDiagram steps={content.diagram} />
+      <BenefitDiagram diagram={bonus.diagram} />
       <BenefitSection title="本質の解説" paragraphs={content.essence} />
       <MoonNote>{content.moon}</MoonNote>
       {bonus.category === "四柱推命" && <ShiChuSuimeiNote bonus={bonus} />}
@@ -557,18 +617,29 @@ function DoDontGrid({ dont, doItems }) {
   );
 }
 
-function MiniDiagram({ steps }) {
+function BenefitDiagram({ diagram }) {
+  if (!diagram) return null;
+  const typeClass = `diagram--${diagram.diagramType}`;
+
   return (
-    <section className="mini-diagram" aria-label="感情の流れ図">
-      {steps.map((step, index) => (
-        <React.Fragment key={step}>
-          <div className="diagram-step">
-            <span>{index + 1}</span>
-            <strong>{step}</strong>
-          </div>
-          {index < steps.length - 1 && <div className="diagram-arrow" aria-hidden="true" />}
-        </React.Fragment>
-      ))}
+    <section className={`benefit-diagram ${typeClass}`} aria-label={diagram.diagramTitle}>
+      <div className="diagram-orbit" aria-hidden="true" />
+      <header className="diagram-header">
+        <span>{diagram.diagramType}</span>
+        <h2>{diagram.diagramTitle}</h2>
+      </header>
+      <div className="diagram-items">
+        {diagram.diagramItems.map((item, index) => (
+          <React.Fragment key={`${item}-${index}`}>
+            <div className="diagram-item">
+              <span>{index + 1}</span>
+              <strong>{item}</strong>
+            </div>
+            {index < diagram.diagramItems.length - 1 && <div className="diagram-arrow" aria-hidden="true" />}
+          </React.Fragment>
+        ))}
+      </div>
+      <p>{diagram.diagramNote}</p>
     </section>
   );
 }

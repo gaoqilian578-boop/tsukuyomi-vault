@@ -406,7 +406,8 @@ h1 {
   color: #f5eddd;
 }
 
-.mini-diagram {
+.benefit-diagram {
+  position: relative;
   display: grid;
   gap: 10px;
   margin: 24px 0 6px;
@@ -416,9 +417,49 @@ h1 {
   background:
     radial-gradient(circle at 18% 10%, rgba(165, 207, 255, 0.16), transparent 9rem),
     linear-gradient(145deg, rgba(11, 23, 43, 0.86), rgba(4, 7, 16, 0.86));
+  overflow: hidden;
 }
 
-.diagram-step {
+.diagram-orbit {
+  position: absolute;
+  right: -38px;
+  top: -42px;
+  width: 128px;
+  height: 128px;
+  border: 1px solid rgba(171, 205, 255, 0.22);
+  border-radius: 50%;
+  box-shadow: inset 0 0 34px rgba(171, 205, 255, 0.08), 0 0 42px rgba(171, 205, 255, 0.08);
+}
+
+.diagram-header {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 6px;
+}
+
+.diagram-header span {
+  color: #8fa9ce;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.diagram-header h2 {
+  margin: 0;
+  color: #f1d98c;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.diagram-items {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 10px;
+}
+
+.diagram-item {
   min-height: 54px;
   display: grid;
   grid-template-columns: 34px 1fr;
@@ -426,7 +467,7 @@ h1 {
   gap: 10px;
 }
 
-.diagram-step span {
+.diagram-item span {
   width: 34px;
   height: 34px;
   display: grid;
@@ -438,7 +479,7 @@ h1 {
   box-shadow: 0 0 22px rgba(151, 199, 255, 0.12);
 }
 
-.diagram-step strong {
+.diagram-item strong {
   color: #fff8e7;
   font-size: 0.98rem;
   font-weight: 500;
@@ -450,6 +491,57 @@ h1 {
   height: 18px;
   margin-left: 16px;
   background: linear-gradient(#d7b76c, rgba(151, 199, 255, 0.24));
+}
+
+.benefit-diagram p {
+  position: relative;
+  z-index: 1;
+  margin: 4px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(215, 183, 108, 0.18);
+  color: #c9d5e9;
+  font-size: 0.92rem;
+  line-height: 1.85;
+}
+
+.diagram--emotion-separation-flow .diagram-items,
+.diagram--distance-flow .diagram-items,
+.diagram--energy-flow .diagram-items,
+.diagram--release-flow .diagram-items,
+.diagram--transformation-flow .diagram-items,
+.diagram--wave-flow .diagram-items {
+  padding-left: 6px;
+}
+
+.diagram--emotion-separation-flow .diagram-item span {
+  border-color: rgba(171, 205, 255, 0.68);
+  color: #f6e7b7;
+  background:
+    radial-gradient(circle at 35% 35%, #f8fbff 0 18%, #b9d4f4 19% 54%, rgba(3, 5, 11, 0.78) 55%),
+    rgba(2, 5, 12, 0.72);
+}
+
+.diagram--comparison .diagram-items,
+.diagram--do-dont .diagram-items,
+.diagram--fork-road .diagram-items {
+  gap: 8px;
+}
+
+.diagram--comparison .diagram-item,
+.diagram--do-dont .diagram-item,
+.diagram--fork-road .diagram-item {
+  min-height: 46px;
+  padding: 10px;
+  border: 1px solid rgba(171, 205, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(2, 6, 14, 0.42);
+}
+
+.diagram--tarot-card .diagram-item,
+.diagram--shichu-note .diagram-item,
+.diagram--male-type .diagram-item {
+  min-height: 48px;
+  border-bottom: 1px solid rgba(215, 183, 108, 0.12);
 }
 
 .moon-note,
@@ -574,15 +666,13 @@ h1 {
     min-height: 190px;
   }
 
-  .mini-diagram {
-    grid-template-columns: repeat(7, auto);
+  .benefit-diagram:not(.diagram--emotion-separation-flow) .diagram-items {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     align-items: center;
   }
 
-  .diagram-arrow {
-    width: 34px;
-    height: 1px;
-    margin: 0;
+  .benefit-diagram:not(.diagram--emotion-separation-flow) .diagram-arrow {
+    display: none;
   }
 
   .do-dont-grid {
