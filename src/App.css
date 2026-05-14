@@ -572,6 +572,10 @@ h1 {
 
 .diagram--tarot-card .diagram-item,
 .diagram--tarot-card-loop .diagram-item,
+.diagram--night-work .diagram-item,
+.diagram--three-minute-work .diagram-item,
+.diagram--affirmation .diagram-item,
+.diagram--letter .diagram-item,
 .diagram--shichu-note .diagram-item,
 .diagram--mind-map .diagram-item,
 .diagram--heart-flow .diagram-item,
@@ -635,6 +639,18 @@ h1 {
     linear-gradient(145deg, rgba(13, 18, 31, 0.9), rgba(4, 7, 16, 0.88));
 }
 
+.diagram--tarot-card,
+.diagram--night-work,
+.diagram--three-minute-work,
+.diagram--affirmation,
+.diagram--letter {
+  background:
+    radial-gradient(circle at 50% -12%, rgba(242, 217, 138, 0.15), transparent 8rem),
+    radial-gradient(circle at 8% 22%, rgba(171, 205, 255, 0.14), transparent 7rem),
+    linear-gradient(145deg, rgba(10, 16, 30, 0.91), rgba(4, 7, 16, 0.88));
+}
+
+.diagram--tarot-card .diagram-item,
 .diagram--tarot-card-loop .diagram-item {
   padding: 10px;
   border: 1px solid rgba(215, 183, 108, 0.14);
@@ -642,8 +658,30 @@ h1 {
   background: rgba(5, 9, 18, 0.5);
 }
 
+.diagram--tarot-card .diagram-item span,
+.diagram--night-work .diagram-item span,
+.diagram--three-minute-work .diagram-item span,
+.diagram--affirmation .diagram-item span,
+.diagram--letter .diagram-item span {
+  border-color: rgba(242, 217, 138, 0.68);
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 248, 231, 0.92) 0 18%, rgba(189, 216, 255, 0.58) 19% 52%, rgba(2, 5, 12, 0.72) 53%),
+    rgba(2, 5, 12, 0.72);
+}
+
+.diagram--affirmation .diagram-item,
+.diagram--letter .diagram-item {
+  padding: 12px;
+  border: 1px solid rgba(215, 183, 108, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(242, 217, 138, 0.08), transparent),
+    rgba(5, 9, 18, 0.56);
+}
+
 .diagram--three-steps .diagram-item,
 .diagram--three-minute-work .diagram-item,
+.diagram--night-work .diagram-item,
 .diagram--release-flow .diagram-item,
 .diagram--transformation-flow .diagram-item,
 .diagram--heart-flow .diagram-item,
